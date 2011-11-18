@@ -45,6 +45,9 @@
 
                 $paramNames = array();
                 $paramValues = array();
+          
+                /* insert if() for preg_match('@\*@'), send all URI segments after splat occurs to
+                   $this->params, then $this->match = true. Below section is in else().*/
 
                 preg_match_all('@:([a-zA-Z]+)@', $url, $paramNames, PREG_PATTERN_ORDER);                    // get param names
                 $paramNames = $paramNames[1];                                                               // we want the set of matches
